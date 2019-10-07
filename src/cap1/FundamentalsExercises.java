@@ -238,8 +238,40 @@ public class FundamentalsExercises {
 
     }
 
-    public static int gcd(int p, int q){
+    public static void gcdClient(){
+        System.out.println("Please add the first Integer");
+        int firstNumber = StdIn.readInt();
+        System.out.println("Please add the second Integer");
+        int secondNumber = StdIn.readInt();
+        System.out.println("The Greates common divisor is: " + gcd(firstNumber,secondNumber));
+        System.out.println("The Greates common divisor is with math Induction: " + proveWithMathEuclidsAlgorithm(firstNumber,secondNumber));
+    }
 
+    public static int gcd(int p, int q){
+        if(q == 0)
+            return p;
+        System.out.println(p + " " + q);
+        return gcd(q,p%q);
+    }
+
+    public static int proveWithMathEuclidsAlgorithm(int p, int q){
+        int maxNumber = p;
+        if(p < q) {
+            maxNumber = q;
+            q = p;
+        }
+
+        while(q !=0){
+            System.out.println(maxNumber +" " +q);
+            while(maxNumber >= q){
+                maxNumber -= q;
+            }
+            p = maxNumber;
+            maxNumber = q;
+            q = p;
+        }
+
+        return maxNumber;
     }
     public static void main(String[] args) {
         FundamentalsExercises fundamentalsExercises = new FundamentalsExercises();
@@ -274,6 +306,7 @@ public class FundamentalsExercises {
         int[] orderedArray = {1,3,5,7,9,10,15,18,20};
         System.out.println("****** 22 Binary search with deep track");
         System.out.println(orderedArray[twentytwoBinarySearch(5,orderedArray,0,orderedArray.length-1,"")]);
+        gcdClient();
 
     }
 }//7778742049 49
