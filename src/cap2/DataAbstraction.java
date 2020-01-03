@@ -1,5 +1,6 @@
 package cap2;
 
+import edu.princeton.cs.algs4.Date;
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.StdRandom;
 
@@ -67,10 +68,23 @@ public class DataAbstraction {
 
     }
 
+    public static void testingAccumulator(){
+        Accumulator accumulator = new Accumulator();
+        accumulator.addDataValue( 10);
+        accumulator.addDataValue( 15);
+        accumulator.addDataValue( 20);
+        System.out.println(accumulator.mean());
+        System.out.println(accumulator.var());
+        System.out.println(accumulator.stddev());
+
+    }
+
+
     public static void main(String[] args) {
         //point2DClient(10);
         //readAllInts("12 8  9 8 99 8");
-        testRational();
+        //testRational();
+        testingAccumulator();
 
     }
 }
